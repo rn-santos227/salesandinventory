@@ -1,0 +1,85 @@
+h3.form-heading {
+    margin-top: 8px;
+}
+
+textarea {
+    resize: none;
+}
+
+body {
+	background-color: #e6e6e6;
+}
+
+button.register {
+	width: 100px;
+}
+
+button.profile {
+  width: 90px;
+}
+
+button.inv {
+  width: 200px;
+}
+
+button.add {
+  width: 150px;
+}
+
+button.nav {
+  width: 150px;
+  text-align: left;
+  padding-left: 15px;
+}
+
+div.view {
+  margin-top: 80px;
+}
+
+div.login {
+  margin-top: 50px;
+}
+
+a.nav {
+  color: #ffffff;
+}
+
+a.nav:hover {
+  color: #000080;
+}
+
+div.submenu {
+   margin-top: 50px;
+   width: 230px;"
+}
+
+i.red {
+  color: red ;
+}
+
+/* Flexbox Example */
+.flexbox { display: flex; }
+.flexbox .stretch { flex: 1; }
+.flexbox .normal { flex: 0; margin: 0 0 0 1rem; }
+.flexbox div input { padding: .5em 1em; width: 100%; }
+.flexbox div button { padding: .5em 1em; white-space: nowrap; }
+
+/* enable absolute positioning */
+.inner-addon {
+    position: relative;
+}
+
+/* style icon */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align icon */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
