@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/stylesheet.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -70,6 +71,7 @@
                 </div>
             </div>
         </nav>
+        @include('layouts.sidenav')
         @yield('content')
     </div>
 
