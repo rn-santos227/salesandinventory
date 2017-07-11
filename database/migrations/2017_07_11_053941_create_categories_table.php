@@ -13,7 +13,14 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('categories', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('ref_code', 32)->unique();
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->boolean('active')->default(1);
+            $table->timestamps();
+        });
     }
 
     /**
