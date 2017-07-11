@@ -13,7 +13,15 @@ class CreateMenusTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('menus', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name');
+            $table->text('decription')->nullable();
+            $table->string('category');
+            $table->decimal('price');
+            $table->boolean('active')->default(1);
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +31,6 @@ class CreateMenusTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('menus');
     }
 }
