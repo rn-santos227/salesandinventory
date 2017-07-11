@@ -23,7 +23,3 @@ Route::group(['middleware' => 'auth'], function() {
     
 });
 
-Route::group(['middleware' => 'level'], function() {
-    
-});
-
