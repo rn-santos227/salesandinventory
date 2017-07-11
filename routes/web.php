@@ -18,3 +18,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/adminhome', 'HomeController@index')->name('adminhome');
+
+Route::group(['middleware' => 'auth'], function() {
+    
+});
+
+Route::group(['middleware' => 'level'], function() {
+    
+});

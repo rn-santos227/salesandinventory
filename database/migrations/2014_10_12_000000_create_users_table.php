@@ -17,9 +17,9 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('ref_code');
             $table->string('username', 32)->unique();
+            $table->string('user_level');
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('user_level');
             $table->string('email')->nullable();
             $table->string('password');
             $table->boolean('active')->default(1);
