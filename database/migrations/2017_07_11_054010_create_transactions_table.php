@@ -13,16 +13,7 @@ class CreateTransactionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('transactions', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('customer_id')->nullable();
-            $table->string('product');
-            $table->integer('quantity');
-            $table->decimal('subtotal');
-            $table->integer('receipt_id');
-            $table->timestamps();
-        });
+
     }
 
     /**
