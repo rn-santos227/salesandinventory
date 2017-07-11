@@ -71,7 +71,6 @@
                 </div>
             </div>
         </nav>
-        @include('layouts.sidenav')
         @yield('content')
     </div>
 
