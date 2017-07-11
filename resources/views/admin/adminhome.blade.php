@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+
 @section('content')
-    <h1>Hello Wurld</h1>
+    <h1>Admin</h1>
+<!-- @include('layouts.adminSidenav') -->
 @endsection

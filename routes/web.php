@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('adminhome');
+    return view('welcome');
 });
 
 Auth::routes();
@@ -26,3 +26,4 @@ Route::group(['middleware' => 'auth'], function() {
 Route::group(['middleware' => 'level'], function() {
     
 });
+
