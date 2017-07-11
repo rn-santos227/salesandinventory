@@ -23,6 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin/adminhome');
+        if($user->user_level === 'Administrator') {
+            return redirect()->intended('admin.home');
+        }
+
+        return redirect()->intended('home.user');
     }
 }
