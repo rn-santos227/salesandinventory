@@ -42,14 +42,20 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
     
+
     public function redirectPath()
     {
-        if (Auth::user()->user_level === 'Administrator') {
-            return view('admin.home');
+        if (Auth::user()->user_level == 'Admin') {
+            return '/dashboard';
+        }
+
+        elseif (Auth::user()->user_level == 'Editor') {
+            return '/posts';
         }
 
         else {
-            return view('user.home');
+            return '/home';
+>>>>>>> origin/master
         }
     }
 
