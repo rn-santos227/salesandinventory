@@ -17,6 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('/categories/add', function() {
+	return view('categories.add');
+});
+
 Route::get('/home', 'HomeController@index');
 
 Route::group(['middleware' => 'auth'], function() {
