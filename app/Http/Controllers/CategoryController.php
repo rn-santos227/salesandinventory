@@ -3,9 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
-use App\Category;
 
 class CategoryController extends Controller
 {
@@ -14,16 +11,6 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'ref_code' => 'required|string|max:255|unique:categories',
-            'name' => 'required|string|max:255|unique:categories',
-            'description' => 'string|max:255',
-        ]);
-    }
-
     public function index()
     {
         //
