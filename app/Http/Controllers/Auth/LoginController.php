@@ -27,6 +27,10 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
+    protected $maxLoginAttempts = 3; // Amount of bad attempts user can make
+    protected $lockoutTime = 300; // Time for which user is going to be blocked in seconds
+ 
+
 
     /**
      * Create a new controller instance.
@@ -38,7 +42,8 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
     
-        public function redirectPath()
+
+    public function redirectPath()
     {
         if (Auth::user()->user_level == 'Admin') {
             return '/dashboard';
@@ -59,10 +64,4 @@ class LoginController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return bool
      */
-    protected function hasTooManyLoginAttempts(Request $request)
-    {
-        return $this->limiter()->tooManyAttempts(
-            $this->throttleKey($request), 5, 1
-        );
-    }
 }
