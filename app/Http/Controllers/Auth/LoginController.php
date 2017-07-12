@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -26,6 +27,10 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
+    protected $maxLoginAttempts = 3; // Amount of bad attempts user can make
+    protected $lockoutTime = 300; // Time for which user is going to be blocked in seconds
+ 
+
 
     /**
      * Create a new controller instance.
@@ -36,4 +41,27 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+    
+
+    public function redirectPath()
+    {
+        if (Auth::user()->user_level == 'Admin') {
+            return '/dashboard';
+        }
+
+        elseif (Auth::user()->user_level == 'Editor') {
+            return '/posts';
+        }
+
+        else {
+            return '/home';
+        }
+    }
+
+    /**
+     * Determine if the user has too many failed login attempts.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return bool
+     */
 }
