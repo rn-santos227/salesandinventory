@@ -55,7 +55,6 @@ class LoginController extends Controller
 
         else {
             return '/home';
->>>>>>> origin/master
         }
     }
 
