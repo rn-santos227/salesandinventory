@@ -104,5 +104,6 @@
       </div>
     </div>
  </div>
+    @include('admin.sidenav') 
 @endsection
 
