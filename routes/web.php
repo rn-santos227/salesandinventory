@@ -12,10 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('layouts.master');
+    return view('welcome');
 });
-
-Route::resource('suppliers','SupplierController');
 
 Auth::routes();
 
