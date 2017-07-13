@@ -49,7 +49,7 @@
     <ul class="sub-menu collapse" id="products">
       <li><a href="items">Products</a></li>
       <li><a href="#">Customers</a></li>
-      <li><a href="#">Suppliers</a></li>
+      <li><a href="suppliers">Suppliers</a></li>
       <li><a href="#">Categories</a></li>
       <li><a href="#">Archives</a></li>
     </ul>
