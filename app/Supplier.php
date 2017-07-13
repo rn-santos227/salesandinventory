@@ -24,4 +24,5 @@ class Supplier extends Model
      */
     protected $hidden = [
     ];
+    
 }
