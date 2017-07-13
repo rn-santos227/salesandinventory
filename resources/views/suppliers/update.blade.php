@@ -5,6 +5,7 @@
             <div class="panel-heading">Edit Supplier</div>
             <div class="panel-body">
                 <form class="form-horizontal" method="POST" action="/suppliers/{{ $supplier->id }}">
+                    {{ method_field('PUT')  }}
                     {{ csrf_field() }}
 
                     <div class="form-group{{ $errors->has('ref_code') ? ' has-error' : '' }}">
@@ -92,21 +93,25 @@
                         </div>
                     </div>
 
-                    <div class="form-group{{ $errors->has('contact') ? ' has-error' : '' }}">
+                    <div class="form-group{{ $errors->has('active') ? ' has-error' : '' }}">
                         <label for="contact" class="col-md-4 control-label">Status</label>
 
                         <div class="col-md-6">
-<!--                                <input id="contact" type="text" class="form-control" name="contact" value="{{$supplier->contact}}" required>-->
-                            <select id="active" type="text" class="form-control" name="active" required>
-                                <option>Active</option>
-                                <option>Inactive</option>
+<!--                                <input id="contact" type="text" class="form-control" name="contact" value="{{$supplier->active}}" required>-->
+                            <select id="active" type="text" class="form-control" name="active" required>    
+                                @if($supplier->active == "Active")
+                                    <option selected>Active</option>
+                                    <option>Inactive</option>
+                                @else
+                                    <option>Active</option>
+                                    <option selected>Inactive</option>
+                                @endif
+                                
                             </select>
                             
-                            <input type="checkbox" checked data-toggle="toggle" data-on="Active" data-off="Inactive">
-                            
-                            @if ($errors->has('contact'))
+                            @if ($errors->has('active'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('contact') }}</strong>
+                                    <strong>{{ $errors->first('active') }}</strong>
                                 </span>
                             @endif
                         </div>

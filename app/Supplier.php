@@ -14,7 +14,7 @@ class Supplier extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'ref_code', 'email', 'address', 'contact', 'description',
+        'name', 'ref_code', 'email', 'address', 'contact', 'description','active',
     ];
 
     /**
@@ -25,8 +25,6 @@ class Supplier extends Model
     protected $hidden = [
     ];
     
-<<<<<<< HEAD
-=======
     public function setActiveAttribute($value) {
         $this->attributes['active'] = $value == 'Active' ? 1 : 0;
     }
@@ -34,5 +32,4 @@ class Supplier extends Model
     public function getActiveAttribute() {
         return $this->attributes['active'] ? 'Active' : 'Inactive';
     }
->>>>>>> refs/remotes/origin/master
 }

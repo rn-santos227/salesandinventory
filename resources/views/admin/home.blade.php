@@ -2,6 +2,5 @@
 
 
 @section('content')
-    <h1>Admin</h1>
-<!-- @include('layouts.adminSidenav') -->
+    @include('layouts.adminSidenav') 
 @endsection

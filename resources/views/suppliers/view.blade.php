@@ -92,7 +92,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group{{ $errors->has('contact') ? ' has-error' : '' }}">
+                    <div class="form-group{{ $errors->has('active') ? ' has-error' : '' }}">
                         <label for="contact" class="col-md-4 control-label">Status</label>
 
                         <div class="col-md-6">
