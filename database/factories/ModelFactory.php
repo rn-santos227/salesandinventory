@@ -16,9 +16,32 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
+        'user_level' => 'Administrator',
+        'username' => 'testaccount00',
+        'first_name' => 'John',
+        'last_name' => 'Doe',
+        'email' => $faker->unique()->email,
+        'password' => $password ?: $password = 'secret',
         'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(App\Category::class, function (Faker\Generator $faker) {
+    return [
+        'name' => 'Uncategorized',
+        'ref_code' => str_random(10),
+        'description' => 'Default Category for Uncategorized Items.',
+    ];
+});
+
+
+$factory->define(App\Supplier::class, function (Faker\Generator $faker) {
+    return [
+        'name' => 'Default',
+        'ref_code' => str_random(10),
+        'email' => $faker->unique()->email,
+        'address' => $faker->address,
+        'contact' => $faker->phonenumber,
+        'description' => 'Default Supplier for self-made products.',        
     ];
 });
