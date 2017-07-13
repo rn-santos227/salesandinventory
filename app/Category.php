@@ -10,8 +10,11 @@ class Category extends Model
         'ref_code', 'name', 'description',
     ];
 
-    public function setActiveAttribute($value)
-    {
-    	$status = ($this->attributes['active']) ? 'active' : 'false';
+    public function setActiveAttribute($value) {
+        $this->attributes['active'] = $value == 'Active' ? 1 : 0;
+    }
+    
+    public function getActiveAttribute() {
+        return $this->attributes['active'] ? 'Active' : 'Inactive';
     }
 }
