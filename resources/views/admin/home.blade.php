@@ -1,10 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<<<<<<< HEAD
-    @include('layouts.adminSidenav') 
-=======
- <div class="container-fluid">
     <div class="row">
       <div class="col-sm-0">
         <div class="nav-side-menu submenu">
