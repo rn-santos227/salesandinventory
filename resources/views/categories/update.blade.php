@@ -2,9 +2,10 @@
 <div class="modal fade modalMolder" id="update{{$category->id}}" role="dialog" >
     <div class="modal-dialog" style="background-color:#ffffff;">
         <div class="panel panel-default">
-            <div class="panel-heading">Edit Supplier</div>
+            <div class="panel-heading">Edit Category</div>
             <div class="panel-body">
-                <form class="form-horizontal" method="POST" action="/categories">
+                <form class="form-horizontal" method="POST" action="/categories/{{ $category->id }}">
+                    {{ method_field('PUT')  }}
                     {{ csrf_field() }}
 
                     <div class="form-group{{ $errors->has('ref_code') ? ' has-error' : '' }}">

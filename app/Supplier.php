@@ -14,7 +14,7 @@ class Supplier extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'ref_code', 'email', 'address', 'contact', 'description',
+        'name', 'ref_code', 'email', 'address', 'contact', 'description','active',
     ];
 
     /**
