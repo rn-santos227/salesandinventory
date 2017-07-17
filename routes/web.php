@@ -15,11 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> refs/remotes/origin/master
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
