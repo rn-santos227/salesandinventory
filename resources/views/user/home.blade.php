@@ -1,7 +1,14 @@
 @extends('layouts.app')
 
-
 @section('content')
-    <h1>User</h1>
-<!-- @include('layouts.userSidenav') -->
+  @include('layouts.menu')
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-0">
+        <div class="nav-side-menu submenu">
+          @include('user.sidenav')
+        </div>
+      </div>
+    </div>
+  </div>
 @endsection

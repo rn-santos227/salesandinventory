@@ -1,7 +1,7 @@
-@extends ('layouts.app')
+@extends('admin.home')
 
-@section('content')
-	<div class="container">
+@section('page')
+	<div class="container-fluid">
 		<div class="row">
 			<div class="panel panel-default">
 				<div class="panel-heading">Categories</div>
