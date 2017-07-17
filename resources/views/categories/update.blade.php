@@ -1,10 +1,11 @@
 @foreach($categories as $category)
 <div class="modal fade modalMolder" id="update{{$category->id}}" role="dialog" >
-    <div class="modal-dialog" style="background-color:#ffffff;">
+    <div class="modal-dialog">
         <div class="panel panel-default">
-            <div class="panel-heading">Edit Supplier</div>
+            <div class="panel-heading">Edit Category</div>
             <div class="panel-body">
-                <form class="form-horizontal" method="POST" action="/categories">
+                <form class="form-horizontal" method="POST" action="/categories/{{ $category->id }}">
+                    {{ method_field('PUT')  }}
                     {{ csrf_field() }}
 
                     <div class="form-group{{ $errors->has('ref_code') ? ' has-error' : '' }}">
@@ -70,6 +71,10 @@
                         <div class="col-md-6 col-md-offset-4">
                             <button type="submit" class="btn btn-primary">
                                 Submit
+                            </button>
+
+                            <button type="submit" data-dismiss="modal" class="btn btn-danger">
+                                Dismiss
                             </button>
                         </div>
                     </div>

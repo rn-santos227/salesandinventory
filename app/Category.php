@@ -7,10 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     protected $fillable = [
-        'ref_code', 'name', 'description',
+        'ref_code', 'name', 'description', 'active',
     ];
-<<<<<<< HEAD
-=======
 
     public function setActiveAttribute($value) {
         $this->attributes['active'] = $value == 'Active' ? 1 : 0;
@@ -19,5 +17,4 @@ class Category extends Model
     public function getActiveAttribute() {
         return $this->attributes['active'] ? 'Active' : 'Inactive';
     }
->>>>>>> refs/remotes/origin/master
 }
