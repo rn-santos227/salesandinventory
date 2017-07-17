@@ -1,6 +1,9 @@
 @extends('layouts.app')
-
 @section('content')
+<div class="container-fluid">
+    @include('admin.sidenav')
+    @include('admin.main')
+</div>
   @include('layouts.menu')
   <div class="container-fluid">
     <div class="row">
