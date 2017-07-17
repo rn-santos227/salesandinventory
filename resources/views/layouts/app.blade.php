@@ -30,8 +30,6 @@
 </head>
 <body>
     <div id="app">
-<<<<<<< HEAD
-        <div class="row">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
