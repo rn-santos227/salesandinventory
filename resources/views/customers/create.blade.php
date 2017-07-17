@@ -3,7 +3,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">Create Supplier</div>
             <div class="panel-body">
-                <form class="form-horizontal" method="POST" action="/suppliers">
+                <form class="form-horizontal" method="POST" action="/customers">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -15,20 +15,6 @@
                                 @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-                        
-                        <div class="form-group{{ $errors->has('ref_code') ? ' has-error' : '' }}">
-                            <label for="ref_code" class="col-md-4 control-label">Reference Code</label>
-
-                            <div class="col-md-6">
-                                <input id="ref_code" type="text" class="form-control" name="ref_code" value="{{ old('ref_code') }}" required autofocus>
-
-                                @if ($errors->has('ref_code'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('ref_code') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -97,11 +83,11 @@
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
-                                    Submit
+                                Submit
                                 </button>
 
                                 <button type="submit" data-dismiss="modal" class="btn btn-danger">
-                                    Dismiss
+                                        Dismiss
                                 </button>
                             </div>
                         </div>
