@@ -3,9 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
-use App\Menu;
 
 class MenuController extends Controller
 {
@@ -16,8 +13,7 @@ class MenuController extends Controller
      */
     public function index()
     {
-        $menus = Menu::all();
-        return view('menus.index', compact('menus'));
+        //
     }
 
     /**
@@ -38,9 +34,7 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        Menu::create($request->all());
-
-        return redirect('/menus');
+        //
     }
 
     /**
