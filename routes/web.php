@@ -25,7 +25,6 @@ Route::group(['middleware' => 'auth'], function() {
 	Route::get('/menus', 'MenuController@index');
 });
 
-
 Route::resource('items', 'ItemController');
 Route::resource('suppliers', 'SupplierController');
 Route::resource('categories', 'CategoryController');

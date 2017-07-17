@@ -1,4 +1,9 @@
-<div class="menu-list">
+<div class="nav-side-menu">
+    <div class="brand">Brand Logo</div>
+    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+    
+        <div class="menu-list">
+
   <ul id="menu-content" class="menu-content collapse out">
     <li data-toggle="collapse" data-target="#home" class="collapsed active">
       <a href="#">
@@ -44,7 +49,7 @@
     <ul class="sub-menu collapse" id="products">
       <li><a href="items">Products</a></li>
       <li><a href="#">Customers</a></li>
-      <li><a href="#">Suppliers</a></li>
+      <li><a href="suppliers">Suppliers</a></li>
       <li><a href="#">Categories</a></li>
       <li><a href="#">Archives</a></li>
     </ul>
