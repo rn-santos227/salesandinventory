@@ -1,17 +1,9 @@
 @extends('layouts.app')
-
 @section('content')
-<<<<<<< HEAD
-<<<<<<< HEAD
-    @include('layouts.menu')
-    
-=======
 <div class="container-fluid">
-    @include('admin.sidenave')
+    @include('admin.sidenav')
     @include('admin.main')
 </div>
->>>>>>> refs/remotes/origin/master
-=======
   @include('layouts.menu')
   <div class="container-fluid">
     <div class="row">
@@ -25,5 +17,4 @@
       @yield('page')
     </div>
   </div>
->>>>>>> refs/remotes/origin/master
 @endsection
