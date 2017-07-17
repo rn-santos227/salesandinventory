@@ -1,13 +1,14 @@
-@extends ('layouts.app')
+@extends('admin.home')
 
-@section('content')
-	<div class="container">
+@section('page')
+	<div class="container-fluid">
 		<div class="row">
 			<div class="panel panel-default">
 				<div class="panel-heading">Categories</div>
 				<div class="panel-body">
-					<button class="btn btn-success pull-right" data-toggle="modal" data-target="#create">Add Category</button>
-					<hr>
+					<button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#create">
+                    <span class="hidden-xs hidden-sm">Add Category</span>
+                    </button><br><br>
 					<table class="table table-bordered table-responsive">
 						<thread>
 							<tr>
@@ -24,7 +25,7 @@
 								<td>{{$category->name}}</td>
 								<td>{{$category->active}}</td>
 								<td style="width:225px;">
-									<button class="btn btn-info" style="width: 100px;" data-toggle="modal" data-target="#view{{$category->id}}">View</button>
+									<button class="btn btn-primary" style="width: 100px;" data-toggle="modal" data-target="#view{{$category->id}}">View</button>
                                     <button class="btn btn-warning" style="width: 100px;" data-toggle="modal" data-target="#update{{$category->id}}">Edit</button>
 								</td>
 							</tr>
