@@ -114,6 +114,10 @@
                             <button type="submit" class="btn btn-primary">
                                 Submit
                             </button>
+
+                            <button type="submit" data-dismiss="modal" class="btn btn-danger">
+                                Dismiss
+                            </button>
                         </div>
                     </div>
                 </form>
