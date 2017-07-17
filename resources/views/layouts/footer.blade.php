@@ -1,9 +1,6 @@
-
-<footer class="footer navbar-fixed-bottom" style="width:100%; min-height:100px; background-color: #fff;">
-        <center>
-        	<br>
-            <p>CONTACT US OR VISIT OUR WEBSITE @ <a href="http://svantecorp.com">SVANTECORP.COM</a>. 
-            <br>
-            &copy; {{ date('Y')}} SVANTE Corp. </p>
-        </center>
+<footer class="footer">
+<hr style="border-color: #000080;">
+<center>
+  <p>&copy; {{ date('Y')}} SVANTE Corp. Email us or visit our website @ <a href="http://svantecorp.com">svantecorp.com</a>.</p>
+</center>
 </footer>

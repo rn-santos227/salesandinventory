@@ -12,18 +12,21 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
-
 Route::group(['middleware' => 'auth'], function() {
-    
+	Route::get('/home', 'HomeController@index');
+	Route::get('/suppliers', 'SupplierController@index');
+	Route::get('/categories', 'CategoryController@index');
+	Route::get('/customers', 'CustommerController@index');
+	Route::get('/menus', 'MenuController@index');
 });
 
-Route::resource('categories', 'CategoryController');
+Route::resource('items', 'ItemController');
 Route::resource('suppliers', 'SupplierController');
+Route::resource('categories', 'CategoryController');
 Route::resource('menus', 'MenuController');
-
+Route::resource('customers', 'CustommerController');
