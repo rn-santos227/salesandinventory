@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('admin.home')
 
-@section('content')
-<div class="container">
+@section('page')
+<div class="container-fluid">
     <div class="row">
             <div class="panel panel-default">
                 <div class="panel-heading">Suppliers</div>
@@ -27,7 +27,6 @@
                                 <td style="width: 225px;">
                                     <button class="btn btn-primary" style="width: 100px;" data-toggle="modal" data-target="#view{{$supplier->id}}">View</button>
                                     <button class="btn btn-warning" style="width: 100px;" data-toggle="modal" data-target="#update{{$supplier->id}}">Edit</button>
-<!--                                    <button class="btn btn-danger" style="width: 100px;">Remove</button>-->
                                 </td>
                             </tr>        
                         @empty

@@ -1,13 +1,17 @@
+<<<<<<< HEAD
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="nav-side-menu">
     <div class="brand">Brand Logo</div>
     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
     
         <div class="menu-list">
+=======
+<div class="menu-list">
+>>>>>>> refs/remotes/origin/master
   <ul id="menu-content" class="menu-content collapse out">
     <li data-toggle="collapse" data-target="#home" class="collapsed active">
       <a href="#">
-        <i class="fa fa-home fa-lg"></i>  Home <span class="arrow"></span>
+        <i class="fa fa-home fa-lg"></i>  Home<span class="arrow"></span> 
       </a>
     </li>
     <ul class="sub-menu collapse" id="home">
@@ -20,7 +24,7 @@
     </ul>
     <li data-toggle="collapse" data-target="#overview" class="collapsed active">
       <a href="#">
-        <i class="fa fa-briefcase fa-lg"></i>  Overview <span class="arrow"></span>
+        <i class="fa fa-briefcase fa-lg"></i>  Overview<span class="arrow"></span> 
       </a>
     </li>
     <ul class="sub-menu collapse" id="overview">
@@ -32,7 +36,7 @@
     </ul>
     <li data-toggle="collapse" data-target="#sales" class="collapsed active">
       <a href="#">
-        <i class="fa fa-shopping-cart fa-lg"></i>  Sales <span class="arrow"></span>
+        <i class="fa fa-shopping-cart fa-lg"></i>  Sales<span class="arrow"></span> 
       </a>
     </li>
     <ul class="sub-menu collapse" id="sales">
@@ -43,7 +47,7 @@
 
     <li data-toggle="collapse" data-target="#products" class="collapsed active">
       <a href="#">
-        <i class="fa fa-list fa-lg"></i>  Inventory <span class="arrow"></span>
+        <i class="fa fa-list fa-lg"></i>  Inventory<span class="arrow"></span> 
       </a>
     </li>
     <ul class="sub-menu collapse" id="products">
@@ -55,7 +59,7 @@
     </ul>
     <li data-toggle="collapse" data-target="#reports" class="collapsed active">
       <a href="#">
-        <i class="fa fa-clipboard fa-lg"></i>  Reports <span class="arrow"></span>
+        <i class="fa fa-clipboard fa-lg"></i>  Reports<span class="arrow"></span> 
       </a>
     </li>
     <ul class="sub-menu collapse" id="reports">
@@ -65,7 +69,7 @@
     </ul>
     <li data-toggle="collapse" data-target="#analytics" class="collapsed active">
       <a href="#">
-        <i class="fa fa-bar-chart fa-lg"></i>  Analytics <span class="arrow"></span>
+        <i class="fa fa-bar-chart fa-lg"></i>  Analytics<span class="arrow"></span> 
       </a>
     </li>
     <ul class="sub-menu collapse" id="analytics">
@@ -75,5 +79,4 @@
       <li><a href="#">Depreciation / Expiration</a></li>
     </ul>
   </ul>
-</div>
 </div>
