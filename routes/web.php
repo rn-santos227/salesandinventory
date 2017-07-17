@@ -24,4 +24,6 @@ Route::group(['middleware' => 'auth'], function() {
 });
 
 Route::resource('categories', 'CategoryController');
+Route::resource('suppliers', 'SupplierController');
+Route::resource('menus', 'MenuController');
 
