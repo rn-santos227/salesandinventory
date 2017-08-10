@@ -3,30 +3,30 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use App\Category;
+use App\AuditTrail;
+use Auth;
 
 class CategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
-    protected function validator(array $data)
+    public function __construct()
     {
-        return Validator::make($data, [
-            'ref_code' => 'required|string|max:255|unique:categories',
-            'name' => 'required|string|max:255|unique:categories',
-            'description' => 'string|max:255',
-        ]);
+        $this->middleware('auth');
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $categories = Category::all();
+        //For search function
+        if($request->has('search') && Schema::hasColumn('categories', $request->input('tags'))) {
+            $categories = Category::where($request->input('tag'), 'LIKE', '%'. $request->input('search') . '%')->paginate(5);
+        }
+        else{
+            $categories = Category::paginate(5);
+        }
+
         return view('categories.index', compact('categories'));
     }
 
@@ -48,9 +48,25 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        Category::create($request->all());
+        $v = Validator::make($request->all(), [
+            'ref_code' => 'required|string|max:255|unique:categories',
+            'name' => 'required|string|max:255',
+        ]);
 
-        return redirect('/categories');
+        if ($v->fails()) {
+            return redirect()->back()->withErrors($v->errors());
+        }
+        
+        Category::create($request->all());
+        AuditTrail::create(['user_id' => Auth::user()->id,
+                            'username' => Auth::user()->username,
+                            'form_name' => 'Category',
+                            'activity' => 'Created ' . 'Category ' . $request->name, 
+        ]);
+
+        return redirect()->back();
+
+
     }
 
     /**
@@ -84,9 +100,21 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $v = Validator::make($request->all(), [
+            'ref_code' => 'required|string|max:255',
+            'name' => 'required|string|max:255'
+        ]);
+
         $categories = Category::findOrFail($id);
         $categories->update($request->all());  
-        return redirect('/categories');
+
+        AuditTrail::create(['user_id' => Auth::user()->id,
+                            'username' => Auth::user()->username,
+                            'form_name' => 'Category',
+                            'activity' => 'Updated ' . 'Category ' . $request->name, 
+        ]);
+
+        return redirect()->back();
     }
 
     /**

@@ -20,7 +20,9 @@ class CreateItemsTable extends Migration
             $table->integer('category_id');
             $table->integer('supplier_id');
             $table->text('description')->nullable();
+            $table->text('image')->nullable();
             $table->integer('quantity');
+            $table->decimal('cost');
             $table->decimal('price');
             $table->boolean('active')->default(1);
             $table->timestamps();

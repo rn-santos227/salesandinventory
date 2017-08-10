@@ -3,23 +3,17 @@
     <div class="modal-dialog">
         <div class="panel panel-default">
             <div class="panel-heading">Edit customer</div>
-            <div class="panel-body">
-                <form class="form-horizontal" method="POST" action="/customers/{{ $customer->id }}">
-                    {{ method_field('PUT')  }}
-                    {{ csrf_field() }}
+            <form class="form-horizontal" method="POST" action="/customers/{{ $customer->id }}">
+                {{ method_field('PUT')  }}
+                {{ csrf_field() }}
 
-                    
+                <div class="panel-body">
                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                         <label for="name" class="col-md-4 control-label">Name</label>
 
                         <div class="col-md-6">
-                            <input id="name" type="text" class="form-control" name="name" value="{{$customer->name}}" required autofocus>
-
-                            @if ($errors->has('name'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('name') }}</strong>
-                                </span>
-                            @endif
+                            <input id="update-name" type="text" class="form-control" name="name" value="{{$customer->name}}" required autofocus>
+                            <strong id="update-name_message" style="color:#FF0000;"></strong>
                         </div>
                     </div>
 
@@ -27,13 +21,8 @@
                         <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                         <div class="col-md-6">
-                            <input id="email" type="email" class="form-control" name="email" value="{{$customer->email}}" required>
-
-                            @if ($errors->has('email'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('email') }}</strong>
-                                </span>
-                            @endif
+                            <input id="update-email" type="email" class="form-control" name="email" value="{{$customer->email}}" required>
+                            <strong id="update-email_message" style="color:#FF0000;"></strong>
                         </div>
                     </div>
 
@@ -41,13 +30,9 @@
                         <label for="address" class="col-md-4 control-label">Address</label>
 
                         <div class="col-md-6">
-                            <textarea rows="4" id="address" type="text" class="form-control" name="address"required>{{$customer->address}}
-                            @if ($errors->has('address'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('address') }}</strong>
-                                </span>
-                            @endif
+                            <textarea rows="4" id="update-address" type="text" class="form-control" name="address" required>{{$customer->address}}
                             </textarea>
+                            <strong id="update-address_message" style="color:#FF0000;"></strong>
                         </div>
                     </div>
 
@@ -55,28 +40,8 @@
                         <label for="contact" class="col-md-4 control-label">Contact</label>
 
                         <div class="col-md-6">
-                            <input id="contact" type="text" class="form-control" name="contact" value="{{$customer->contact}}" required>
-
-                            @if ($errors->has('contact'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('contact') }}</strong>
-                                </span>
-                            @endif
-                        </div>
-                    </div>
-
-                    <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
-                        <label for="description" class="col-md-4 control-label">Description</label>
-
-                        <div class="col-md-6">
-                            <textarea rows="4" id="description" type="text" class="form-control" name="description" required>{{$customer->description}}
-
-                            @if ($errors->has('description'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('description') }}</strong>
-                                </span>
-                            @endif
-                            </textarea>
+                            <input id="update-contact" type="text" class="form-control" name="contact" value="{{$customer->contact}}" required>
+                            <strong id="update-contact_message" style="color:#FF0000;"></strong>
                         </div>
                     </div>
 
@@ -84,8 +49,7 @@
                         <label for="contact" class="col-md-4 control-label">Status</label>
 
                         <div class="col-md-6">
-<!--                                <input id="contact" type="text" class="form-control" name="contact" value="{{$customer->active}}" required>-->
-                            <select id="active" type="text" class="form-control" name="active" required>    
+                            <select id="update-active" type="text" class="form-control" name="active" required>    
                                 @if($customer->active == "Active")
                                     <option selected>Active</option>
                                     <option>Inactive</option>
@@ -95,28 +59,21 @@
                                 @endif
                                 
                             </select>
-                            
-                            @if ($errors->has('active'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('active') }}</strong>
-                                </span>
-                            @endif
+                            <strong id="update-active_message" style="color:#FF0000;"></strong>
                         </div>
                     </div>
+                </div>
 
-                    <div class="form-group">
-                        <div class="col-md-6 col-md-offset-4">
-                            <button type="submit" class="btn btn-primary">
-                                Submit
-                            </button>
-
-                            <button type="submit" data-dismiss="modal" class="btn btn-danger">
-                                    Dismiss
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+                <div class="panel-footer clearfix">  
+                    <button type="submit" class="btn btn-primary pull-right" style="margin-right: 10px;">
+                        <i class="fa fa-check-circle" aria-hidden="true"></i> Submit
+                    </button>
+                    <button type="button" data-dismiss="modal" class="btn btn-danger pull-right" style="margin-right: 10px;">
+                        <i class="fa fa-times-circle" aria-hidden="true"></i> Dismiss
+                    </button>
+                </div>
+                
+            </form>
         </div>            
     </div>
 </div>

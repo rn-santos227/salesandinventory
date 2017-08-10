@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  @include('layouts.menu')
+  @include('user.menu')
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-0">

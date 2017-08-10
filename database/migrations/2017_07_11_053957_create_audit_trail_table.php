@@ -13,7 +13,14 @@ class CreateAuditTrailTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('audit_trails', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('user_id');
+            $table->string('username');
+            $table->string('form_name');
+            $table->string('activity');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +30,6 @@ class CreateAuditTrailTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('audit_trails');
     }
 }

@@ -26,11 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
-    protected $maxLoginAttempts = 3; // Amount of bad attempts user can make
-    protected $lockoutTime = 300; // Time for which user is going to be blocked in seconds
- 
-
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -45,7 +41,7 @@ class LoginController extends Controller
 
     public function redirectPath()
     {
-        if (Auth::user()->user_level == 'Admin') {
+        if (Auth::user()->user_level == 'Administrator') {
             return '/dashboard';
         }
 
@@ -54,7 +50,7 @@ class LoginController extends Controller
         }
 
         else {
-            return '/home';
+            return '/dashboard';
         }
     }
 

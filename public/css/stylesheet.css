@@ -178,10 +178,14 @@ i.red {
   border-left: 3px solid #2e353d;
   border-bottom: 1px solid #23282e;
 }
-.nav-side-menu li a {
+.nav-side-menu a li{
   text-decoration: none;
   color: #e1ffff;
 }
+.nav-side-menu a:hover{
+  text-decoration: none;
+}
+
 .nav-side-menu li a i {
   padding-left: 10px;
   width: 20px;
@@ -231,3 +235,188 @@ body {
   margin: 0px;
   padding: 0px;
 }
+
+.search {
+  border-color: #939393;
+}
+
+.input-group-addon {
+    min-width:150px;
+    text-align:left;
+}
+
+
+td.action {
+    width: 250px;
+}
+
+
+button.action {
+    min-width: 100px;
+  }
+
+@media (max-width: 1060px) {
+   .input-group-addon {
+      min-width:30px;
+      text-align:left;
+  } 
+
+  button.action {
+    min-width: 30px;
+  }
+
+  td.action {
+    width: 100px;
+  }
+}
+
+#myTable {
+    float:left;
+    border:1px solid #dfdfdf;
+    border-collapse:collapse;   
+    width:100%;
+    font-size:12px;
+}
+/* #Tablet (Portrait)
+================================================== */
+/* Note: Design for a width of 768px */
+@media all and (min-width: 768px) and (max-width: 959px) {
+    .col_hide{
+        display:none;
+        width:0;
+        height:0;
+        opacity:0;
+        visibility: collapse;       
+    } 
+}
+/* #Mobile (Landscape)
+================================================== */
+/* Note: Design for a width of 600px */
+@media all and (min-width: 600px) and (max-width: 767px) {
+    .col_hide{
+        display:none;
+        width:0;
+        height:0;
+        opacity:0;
+        visibility: collapse;
+    } 
+}
+/* #Mobile (Landscape)
+================================================== */
+/* Note: Design for a width of 480px */
+@media all and (min-width: 480px) and (max-width: 599px) {
+    .col_hide{
+        display:none;
+        width:0;
+        height:0;
+        opacity:0;
+        visibility: collapse;
+    } 
+}
+/*  #Mobile (Portrait)
+================================================== */
+/* Note: Design for a width of 320px */
+@media all and (max-width: 479px) {
+    .col_hide{
+        display:none;
+        width:0;
+        height:0;
+        opacity:0;
+        visibility: collapse;
+    }      
+}
+
+.display-table
+{
+    display: table;
+    padding: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+.display-table-row
+{
+    display: table-row;
+    height: 100%;
+}
+
+.display-table-cell
+{
+  display: table-cell;
+  float: none;
+  height: 100%;
+}
+
+.menu-heading
+{
+  height: 70px;
+}
+
+.hide-x-bar
+{
+  overflow-x: hidden; 
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+/*----- Accordion -----*/
+.accordion, .accordion * {
+    -webkit-box-sizing:border-box; 
+    -moz-box-sizing:border-box; 
+    box-sizing:border-box;
+}
+
+.accordion {
+    overflow:hidden;
+    box-shadow:0px 1px 3px rgba(0,0,0,0.25);
+    border-radius:3px;
+    background:#f7f7f7;
+}
+
+/*----- Section Titles -----*/
+.accordion-section-title {
+    width:100%;
+    padding:15px;
+    display:inline-block;
+    border-bottom:1px solid #1a1a1a;
+    background:#24292e;
+    transition:all linear 0.15s;
+    /* Type */
+    font-size:1.200em;
+    text-shadow:0px 1px 0px #1a1a1a;
+    color:#fff;
+}
+
+.accordion-section-title.active, .accordion-section-title:hover {
+    background:#2a2e33;
+    /* Type */
+    text-decoration:none;
+    color:#fff;
+}
+
+.accordion-section-title:link  {
+    text-decoration:none;
+}
+
+.accordion-section-title:visited  {
+    color:#fff; 
+}
+
+.accordion-section:last-child .accordion-section-title {
+    border-bottom:none;
+}
+
+/*----- Section Content -----*/
+.accordion-section-content {
+    padding:15px;
+    display:none;
+}
+
+.panel-dialog
+{
+    margin-top: 250px;
+    width: 560px;
+}
+

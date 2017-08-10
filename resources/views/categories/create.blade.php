@@ -2,66 +2,55 @@
     <div class="modal-dialog">
         <div class="panel panel-default">
             <div class="panel-heading">Add Category</div>
-            <div class="panel-body">
-                <form class="form-horizontal" method="POST" action="/categories">
-                    {{ csrf_field() }}
+            <form class="form-horizontal" method="POST" action="/categories">
 
+                <!-- CSRF Tokens needed for Cross-Site Request Forgery(CSRF) Protection/Prevention -->
+                {{ csrf_field() }}
+
+                <div class="panel-body">
+
+                    <!-- Input field for Category Name -->
                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                         <label for="name" class="col-md-4 control-label">Name</label>
 
                         <div class="col-md-6">
-                            <input id="name" type="text" class="form-control" name="name" required autofocus>
-
-                            @if ($errors->has('name'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('name') }}</strong>
-                                </span>
-                            @endif
+                            <input id="add-name" type="text" class="form-control" name="name" required autofocus>
+                            <strong id="add-name_message" style="color:#FF0000;"></strong>
                         </div>
                     </div>
 
+                    <!-- Input field for Category Reference Code -->
                     <div class="form-group{{ $errors->has('ref_code') ? ' has-error' : '' }}">
                         <label for="ref_code" class="col-md-4 control-label">Reference Code</label>
 
                         <div class="col-md-6">
-                            <input id="ref_code" type="text" class="form-control" name="ref_code" required autofocus>
-
-                            @if ($errors->has('ref_code'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('ref_code') }}</strong>
-                                </span>
-                            @endif
+                            <input id="add-ref_code" type="text" class="form-control" name="ref_code" required autofocus>
+                            <strong id="add-ref_code_message" style="color:#FF0000;"></strong>
                         </div>
                     </div>
 
+                    <!-- Input field for Category Description -->
                     <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
                         <label for="description" class="col-md-4 control-label">Description</label>
 
                         <div class="col-md-6">
-                            <textarea rows="4" id="description" type="text" class="form-control" name="description" required>
-
-                            @if ($errors->has('description'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('description') }}</strong>
-                                </span>
-                            @endif
-                            </textarea>
+                            <textarea rows="4" id="add-description" type="text" class="form-control" name="description"></textarea>
+                            <strong id="add-description_message" style="color:#FF0000;"></strong>
                         </div>
                     </div>
+                </div>
 
-                    <div class="form-group">
-                        <div class="col-md-6 col-md-offset-4">
-                            <button type="submit" class="btn btn-primary">
-                                Submit
-                            </button>
-
-                            <button type="submit" data-dismiss="modal" class="btn btn-danger">
-                                Dismiss
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+                <!-- Submit and Dismiss Buttons -->
+                <div class="panel-footer clearfix">  
+                    <button type="submit" class="btn btn-primary pull-right" style="margin-right: 10px;">
+                        <i class="fa fa-check-circle" aria-hidden="true"></i> Submit
+                    </button>
+                    <button type="button" data-dismiss="modal" class="btn btn-danger pull-right" style="margin-right: 10px;">
+                        <i class="fa fa-times-circle" aria-hidden="true"></i> Dismiss
+                    </button>
+                </div>
+                
+            </form>
         </div>            
     </div>
 </div>

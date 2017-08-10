@@ -3,23 +3,31 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-//use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Contracts\Validation\Validator;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 use App\Supplier;
+use App\Category;
+use App\AuditTrail;
+use Auth;
 
 
 class SupplierController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function __construct()
     {
-        $suppliers = Supplier::all();
+        $this->middleware('auth');
+    }
+
+    public function index(Request $request)
+    {
+        if($request->has('search') && Schema::hasColumn('suppliers', $request->input('tags'))) {
+            $suppliers = Supplier::where($request->input('tag'), 'LIKE', '%'. $request->input('search') . '%')->paginate(5);
+        }
+        else{
+            $suppliers = Supplier::paginate(5);
+        }
+        //returns suppliers blade and imports suppliers into blade
         return view('suppliers.index',compact('suppliers'));
     }
 
@@ -30,6 +38,7 @@ class SupplierController extends Controller
      */
     public function create()
     {
+        //returns suppliers blade
         return view('suppliers.create');
     }
 
@@ -41,8 +50,27 @@ class SupplierController extends Controller
      */
     public function store(Request $request)
     {
+        // validates all input 
+        $v = Validator::make($request->all(), [
+            'ref_code' => 'required|string|max:255|unique:suppliers',
+            'name' => 'required|string|max:255',
+            'email' => 'string|email|max:255|unique:suppliers',
+            'address' => 'string|max:255',
+            'contact' => 'string|max:255',
+            'description' => 'string|max:255',
+        ]);
+
+        // if ($v->fails()) {
+        //     return redirect()->back()->withErrors($v->errors());
+        // }
+        //stores info into suppliers table
         Supplier::create($request->all());
-        return redirect('/suppliers');
+        AuditTrail::create(['user_id' => Auth::user()->id,
+                            'username' => Auth::user()->username,
+                            'form_name' => 'Suppliers',
+                            'activity' => 'Created ' . 'Supplier ' . $request->name, 
+        ]);
+        return redirect()->back();
     }
 
     /**
@@ -76,9 +104,16 @@ class SupplierController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //checks if Supplier model exists
         $suppliers = Supplier::findOrFail($id);
+        //updates the suppliers table
         $suppliers->update($request->all());  
-        return redirect('/suppliers');
+        AuditTrail::create(['user_id' => Auth::user()->id,
+                            'username' => Auth::user()->username,
+                            'form_name' => 'Suppliers',
+                            'activity' => 'Updated ' . 'Supplier ' . $request->name, 
+        ]);
+        return redirect()->back();
     }
 
     /**
@@ -90,18 +125,6 @@ class SupplierController extends Controller
     public function destroy($id)
     {
         //
-    }
-    
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'ref_code' => 'required|string|max:255|unique:suppliers',
-            'name' => 'required|string|max:255',
-            'email' => 'string|email|max:255|unique:suppliers',
-            'address' => 'stringmax:255',
-            'contact' => 'string|max:255',
-            'description' => 'string|max:255',
-        ]);
     }
     
 }

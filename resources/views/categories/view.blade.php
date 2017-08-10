@@ -3,78 +3,70 @@
     <div class="modal-dialog">
         <div class="panel panel-default">
             <div class="panel-heading">View Category</div>
-            <div class="panel-body">
-                <form class="form-horizontal" method="POST" action="/categories">
-                    {{ csrf_field() }}
-                    
-                    <div class="form-group{{ $errors->has('ref_code') ? ' has-error' : '' }}">
+            <form class="form-horizontal" method="POST" action="/categories">
+
+                <!-- CSRF Tokens needed for Cross-Site Request Forgery(CSRF) Protection/Prevention -->
+                {{ csrf_field() }}
+
+                <div class="panel-body">    
+
+                    <!-- View Field for Category Reference Code -->
+                    <div class="form-group" id="ref_code">
                         <label for="ref_code" class="col-md-4 control-label">Reference Code</label>
-
-                        <div class="col-md-6">
-                            <input id="ref_code" type="text" class="form-control" name="ref_code" value="{{$category->ref_code}}" readonly autofocus>
-
-                            @if ($errors->has('ref_code'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('ref_code') }}</strong>
-                                </span>
-                            @endif
+                        <div class="col-md-7">
+                            <input style="background-color:#ffffff;" id="ref_code" type="text" class="form-control" name="ref_code" value="{{$category->ref_code}}" readonly >
                         </div>
                     </div>
                     
-                    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                    <!-- View Field for Category Name -->
+                    <div class="form-group" id="name">
                         <label for="name" class="col-md-4 control-label">Name</label>
-
-                        <div class="col-md-6">
-                            <input id="name" type="text" class="form-control" name="name" value="{{$category->name}}" readonly autofocus>
-
-                            @if ($errors->has('name'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('name') }}</strong>
-                                </span>
-                            @endif
+                        <div class="col-md-7">
+                            <input style="background-color:#ffffff;" id="name" type="text" class="form-control" name="name" value="{{$category->name}}" readonly >
                         </div>
                     </div>
 
-                    <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
+                    <!-- View Field for Category Description -->
+                    <div class="form-group" id="description">
                         <label for="description" class="col-md-4 control-label">Description</label>
-
-                        <div class="col-md-6">
-                            <textarea rows="4" id="description" type="text" class="form-control" name="description" readonly>{{$category->description}}
-
-                            @if ($errors->has('description'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('description') }}</strong>
-                                </span>
-                            @endif
-                            </textarea>
+                        <div class="col-md-7">
+                            <textarea style="background-color:#ffffff;" rows="4" id="description" type="text" class="form-control" name="description" readonly>{{$category->description}}</textarea>
                         </div>
                     </div>
 
-                    <div class="form-group{{ $errors->has('active') ? ' has-error' : '' }}">
-                        <label for="contact" class="col-md-4 control-label">Status</label>
-
-                        <div class="col-md-6">
-                            <select id="active" type="text" class="form-control" name="active" readonly disabled>
-                                <option>Active</option>
-                                <option>Inactive</option>
-                            </select>
-                            @if ($errors->has('active'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('active') }}</strong>
-                                </span>
-                            @endif
+                    <!-- View Field for Category Status -->
+                    <div class="form-group" id="active">
+                        <label class="control-label col-sm-4">Status:</label>
+                        <div class="col-sm-7">
+                            <input style="background-color:#ffffff;" type="text" class="form-control" id="active" name="active" value="{{$category->active}}" readonly>
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <div class="col-md-6 col-md-offset-4">
-                            <button type="submit" data-dismiss="modal" class="btn btn-danger">
-                                Dismiss
-                            </button>
+                    <!-- View Field for Category Created_At -->
+                    <div class="form-group" id="created_at">
+                        <label class="control-label col-sm-4">Created At:</label>
+                        <div class="col-sm-7">
+                            <input style="background-color:#ffffff;" type="text" class="form-control" id="created_at" name="created_at" value="{{$category->created_at}}" readonly>
                         </div>
                     </div>
-                </form>
-            </div>
+                
+                    <!-- View Field for Category Updated_At -->
+                    <div class="form-group" id="updated_at">
+                        <label class="control-label col-sm-4">Last Updated:</label>
+                        <div class="col-sm-7">
+                            <input style="background-color:#ffffff;" type="text" class="form-control" id="updated_at" name="updated_at" value="{{$category->updated_at}}" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit and Dismiss Buttons -->
+                <div class="panel-footer clearfix">  
+                    <button type="button" data-dismiss="modal" class="btn btn-danger pull-right" style="margin-right: 10px;">
+                        <i class="fa fa-times-circle" aria-hidden="true"></i> Dismiss
+                    </button>
+                </div>
+
+            </form>
         </div>            
     </div>
 </div>

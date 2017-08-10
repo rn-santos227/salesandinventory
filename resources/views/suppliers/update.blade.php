@@ -2,9 +2,10 @@
 <div class="modal fade modalMolder" id="update{{$supplier->id}}" role="dialog" >
     <div class="modal-dialog">
         <div class="panel panel-default">
+        <form class="form-horizontal" method="POST" action="/suppliers/{{ $supplier->id }}">
             <div class="panel-heading">Edit Supplier</div>
             <div class="panel-body">
-                <form class="form-horizontal" method="POST" action="/suppliers/{{ $supplier->id }}">
+                
                     {{ method_field('PUT')  }}
                     {{ csrf_field() }}
 
@@ -12,13 +13,8 @@
                         <label for="ref_code" class="col-md-4 control-label">Reference Code</label>
 
                         <div class="col-md-6">
-                            <input id="ref_code" type="text" class="form-control" name="ref_code" value="{{$supplier->ref_code}}" required autofocus>
-
-                            @if ($errors->has('ref_code'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('ref_code') }}</strong>
-                                </span>
-                            @endif
+                            <input id="update-ref_code" type="text" class="form-control" name="ref_code" value="{{$supplier->ref_code}}" required autofocus>
+                            <strong id="update-ref_code_message" style="color:#FF0000;"></strong>
                         </div>
                     </div>
                     
@@ -26,13 +22,8 @@
                         <label for="name" class="col-md-4 control-label">Name</label>
 
                         <div class="col-md-6">
-                            <input id="name" type="text" class="form-control" name="name" value="{{$supplier->name}}" required autofocus>
-
-                            @if ($errors->has('name'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('name') }}</strong>
-                                </span>
-                            @endif
+                            <input id="update-name" type="text" class="form-control" name="name" value="{{$supplier->name}}" required autofocus>
+                            <strong id="update-name_message" style="color:#FF0000;"></strong>
                         </div>
                     </div>
 
@@ -40,13 +31,8 @@
                         <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                         <div class="col-md-6">
-                            <input id="email" type="email" class="form-control" name="email" value="{{$supplier->email}}" required>
-
-                            @if ($errors->has('email'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('email') }}</strong>
-                                </span>
-                            @endif
+                            <input id="update-email" type="email" class="form-control" name="email" value="{{$supplier->email}}" required>
+                            <strong id="update-email_message" style="color:#FF0000;"></strong>
                         </div>
                     </div>
 
@@ -54,13 +40,9 @@
                         <label for="address" class="col-md-4 control-label">Address</label>
 
                         <div class="col-md-6">
-                            <textarea rows="4" id="address" type="text" class="form-control" name="address"required>{{$supplier->address}}
-                            @if ($errors->has('address'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('address') }}</strong>
-                                </span>
-                            @endif
+                            <textarea rows="4" id="update-address" type="text" class="form-control" name="address"required>{{$supplier->address}}
                             </textarea>
+                            <strong id="update-address_message" style="color:#FF0000;"></strong>
                         </div>
                     </div>
 
@@ -68,13 +50,8 @@
                         <label for="contact" class="col-md-4 control-label">Contact</label>
 
                         <div class="col-md-6">
-                            <input id="contact" type="text" class="form-control" name="contact" value="{{$supplier->contact}}" required>
-
-                            @if ($errors->has('contact'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('contact') }}</strong>
-                                </span>
-                            @endif
+                            <input id="update-contact" type="text" class="form-control" name="contact" value="{{$supplier->contact}}" required>
+                            <strong id="update-contact_message" style="color:#FF0000;"></strong>
                         </div>
                     </div>
 
@@ -82,14 +59,9 @@
                         <label for="description" class="col-md-4 control-label">Description</label>
 
                         <div class="col-md-6">
-                            <textarea rows="4" id="description" type="text" class="form-control" name="description" required>{{$supplier->description}}
-
-                            @if ($errors->has('description'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('description') }}</strong>
-                                </span>
-                            @endif
+                            <textarea rows="4" id="update-description" type="text" class="form-control" name="description">{{$supplier->description}}
                             </textarea>
+                            <strong id="update-description_message" style="color:#FF0000;"></strong>
                         </div>
                     </div>
 
@@ -97,39 +69,30 @@
                         <label for="contact" class="col-md-4 control-label">Status</label>
 
                         <div class="col-md-6">
-<!--                                <input id="contact" type="text" class="form-control" name="contact" value="{{$supplier->active}}" required>-->
-                            <select id="active" type="text" class="form-control" name="active" required>    
+
+                            <select id="update-active" type="text" class="form-control" name="active" required>    
                                 @if($supplier->active == "Active")
                                     <option selected>Active</option>
                                     <option>Inactive</option>
                                 @else
                                     <option>Active</option>
                                     <option selected>Inactive</option>
-                                @endif
-                                
+                                @endif         
                             </select>
-                            
-                            @if ($errors->has('active'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('active') }}</strong>
-                                </span>
-                            @endif
+                            <strong id="update-active_message" style="color:#FF0000;"></strong>
                         </div>
                     </div>
-
-                    <div class="form-group">
-                        <div class="col-md-6 col-md-offset-4">
-                            <button type="submit" class="btn btn-primary">
-                                Submit
-                            </button>
-
-                            <button type="submit" data-dismiss="modal" class="btn btn-danger">
-                                    Dismiss
-                            </button>
-                        </div>
-                    </div>
-                </form>
+                
             </div>
+            <div class="panel-footer clearfix">
+                <button type="submit" class="btn btn-primary pull-right" style="margin-right:10px">
+                    <i class="fa fa-check-circle" aria-hidden="true"></i> Submit
+                </button>
+                <button type="submit" data-dismiss="modal" class="btn btn-danger pull-right" style="margin-right:10px">
+                    <i class="fa fa-times-circle" aria-hidden="true"></i> Dismiss
+                </button>
+            </div>
+        </form>
         </div>            
     </div>
 </div>

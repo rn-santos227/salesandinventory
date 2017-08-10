@@ -17,8 +17,10 @@ class CreateMenusTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('ref_code', 32)->unique();
-            $table->text('decription')->nullable();
-            $table->string('category');
+            $table->integer('category_id');
+            $table->text('description')->nullable();
+            $table->text('image')->nullable();
+            $table->decimal('cost');
             $table->decimal('price');
             $table->boolean('active')->default(1);
             $table->timestamps();

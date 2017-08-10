@@ -3,17 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Scout\Searchable;
 
 class Supplier extends Model
 {
-//    use Notifiable;
+    use Searchable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
+        //input fields
         'name', 'ref_code', 'email', 'address', 'contact', 'description','active',
     ];
 
@@ -26,10 +23,12 @@ class Supplier extends Model
     ];
     
     public function setActiveAttribute($value) {
+        //sets value into boolean binary
         $this->attributes['active'] = $value == 'Active' ? 1 : 0;
     }
     
     public function getActiveAttribute() {
+        //gets value from boolean binary into active and inactive
         return $this->attributes['active'] ? 'Active' : 'Inactive';
     }
 }

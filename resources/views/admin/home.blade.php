@@ -1,10 +1,7 @@
 @extends('layouts.app')
+
 @section('content')
-<div class="container-fluid">
-    @include('admin.sidenav')
-    @include('admin.main')
-</div>
-  @include('layouts.menu')
+  @include('admin.menu')
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-0">
@@ -15,6 +12,7 @@
     </div>
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
       @yield('page')
+      @include('layouts.footer')
     </div>
   </div>
 @endsection
